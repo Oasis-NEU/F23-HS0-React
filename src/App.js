@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+// import "./App.css";
+import { useState } from "react";
 
-function App() {
+import Header from "./Header";
+import Form from "./Form";
+import Output from "./Output";
+
+export default function App() {
+  // input field values
+  const [photo, setPhoto] = useState(null);
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [fact, setFact] = useState("");
+
+  // show/hide card
+  const [showOutput, setShowOutput] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+
+      <Form
+        photo={photo}
+        setPhoto={setPhoto}
+        name={name}
+        setName={setName}
+        title={title}
+        setTitle={setTitle}
+        fact={fact}
+        setFact={setFact}
+        showOutput={showOutput}
+        setShowOutput={setShowOutput}
+      />
+
+      {showOutput ? (
+        <Output photo={photo} name={name} title={title} fact={fact} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
-
-export default App;
