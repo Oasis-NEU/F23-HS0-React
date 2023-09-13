@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import { useState } from "react";
 
 import Header from "./Header";
@@ -6,13 +6,11 @@ import Form from "./Form";
 import Output from "./Output";
 
 export default function App() {
-  // input field values
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [fact, setFact] = useState("");
 
-  // show/hide card
   const [showOutput, setShowOutput] = useState(false);
 
   return (
